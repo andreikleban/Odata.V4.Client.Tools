@@ -1,0 +1,46 @@
+name: release build
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore -s https://api.nuget.org/v3/index.json
+    - name: Build solution
+      run: dotnet build --no-restore --configuration Release
+    - name: Test solution
+      run: dotnet test --no-build --verbosity normal --configuration Release
+    - name: Publish
+      run: dotnet publish  src\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj -o Publish -c Release --no-restore
+      
+    - uses: actions/upload-artifact@v2
+      with:
+        name: packages
+        path: src/**/*.nupkg      
+    
+    - uses: actions/upload-artifact@v2
+      with:
+        name: symbols
+        path: src/**/*.snupkg              
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Odata.V4.Client.Tools
+        path: Publish/*.*        
+      
+    - name: Download all workflow run artifacts
+      uses: actions/download-artifact@v2      

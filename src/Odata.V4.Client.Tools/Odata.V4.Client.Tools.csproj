@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <Description>Odata.V4.Client.Tools is a command-line tool for generation OData client proxy classes. It's based on OData Connected Services Extension.</Description>
+	  <PackAsTool>true</PackAsTool>
+	  <!--<ToolCommandName>botsay</ToolCommandName>
+	  <PackageOutputPath>./nupkg</PackageOutputPath>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.12" />
+	<PackageReference Include="Microsoft.OData.Edm" Version="7.8.3" />
+    <PackageReference Include="System.CodeDom" Version="5.0.0" />
+  </ItemGroup>  
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Odata.V4.Client.Tools.Abstractions\Odata.V4.Client.Tools.Abstractions.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ODataT4CodeGenerator.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ODataT4CodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Templates\ODataT4ContainerExtensionGenerator.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ODataT4ContainerExtensionGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Templates\ODataT4CodeGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ODataT4CodeGenerator.cs</LastGenOutput>
+    </None>
+    <None Update="Templates\ODataT4ContainerExtensionGenerator.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ODataT4ContainerExtensionGenerator.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+	<Import Project="..\..\Odata.V4.Client.Tools.targets" />
+</Project>
