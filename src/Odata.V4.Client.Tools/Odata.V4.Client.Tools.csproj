@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <Description>Odata.V4.Client.Tools is a command-line tool for generation OData client proxy classes. It's based on OData Connected Services Extension.</Description>
+	  <Description>dotnet-odata4 is a command-line tool for generation OData V4 client proxy classes. It's based on OData Connected Services Extension.</Description>
 	  <PackAsTool>true</PackAsTool>
 	  <ToolCommandName>odata4</ToolCommandName>
 	  <PackageId>dotnet-odata4</PackageId>
