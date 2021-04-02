@@ -8,6 +8,13 @@ on:
        - 'tests/**'
        - '*.sln'
        - '*.targets'
+  pull_request:
+    branches: [ main ]
+    paths:
+       - 'src/**'
+       - 'tests/**'
+       - '*.sln'
+       - '*.targets'
 
 jobs:
   build:
