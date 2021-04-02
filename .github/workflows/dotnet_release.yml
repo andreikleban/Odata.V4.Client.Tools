@@ -1,6 +1,13 @@
 name: build release
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+       - 'src/**'
+       - 'tests/**'
+       - '*.sln'
+       - '*.targets'
   pull_request:
     branches: [ main ]
     paths:
