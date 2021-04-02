@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <Description>dotnet-odata4 is a command-line tool for generation OData V4 client proxy classes. It's based on OData Connected Services Extension.</Description>
+	  <PackAsTool>true</PackAsTool>
+	  <ToolCommandName>odata4</ToolCommandName>
+	  <PackageId>dotnet-odata4</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj" />
+  </ItemGroup>
+	<Import Project="..\..\Odata.V4.Client.Tools.targets" />
+</Project>

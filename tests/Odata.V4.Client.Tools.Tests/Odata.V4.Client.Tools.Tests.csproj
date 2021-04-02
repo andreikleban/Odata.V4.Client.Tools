@@ -16,9 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj" />
+    <ProjectReference Include="..\..\src\dotnet-odata4\dotnet-odata4.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Assets\metadataV3.edmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
