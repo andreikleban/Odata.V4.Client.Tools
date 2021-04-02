@@ -26,8 +26,6 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     - name: Test solution
       run: dotnet test --no-build --verbosity normal --configuration Release
-    - name: Publish
-      run: dotnet publish  src\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj -o Publish -c Release --no-restore
       
     - uses: actions/upload-artifact@v2
       with:
@@ -39,13 +37,7 @@ jobs:
       with:
         name: symbols
         path: src/**/*.snupkg
-        retention-days: 3
-        
-    - uses: actions/upload-artifact@v2        
-      with:
-        name: Odata.V4.Client.Tools
-        path: Publish/*.*
-        retention-days: 3
+        retention-days: 3        
       
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v2      
