@@ -114,7 +114,6 @@ namespace Odata.V4.Client.Tools
                 return (int) ExitCode.Error;
             }
 
-            //опция -m
             if (_metadataDocumentUriOption.HasValue())
                 _generatorParams.MetadataDocumentUri = _metadataDocumentUriOption.Value();
 
@@ -145,7 +144,6 @@ namespace Odata.V4.Client.Tools
             if (_customContainerNameOption.HasValue())
                 _generatorParams.CustomContainerName = _customContainerNameOption.Value();
 
-            //опция -o
             if (_outputDirOption.HasValue())
             {
                 if (!Directory.Exists(_outputDirOption.Value()))

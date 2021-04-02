@@ -567,6 +567,7 @@ public void SetCustomHttpHeadersFromString(string headersValue)
     }
 }
 
+/// <summary>
 /// Set the ExcludedOperationImports property with the given value.
 /// </summary>
 /// <param name="inputValue">Comma-separated list of operation import names</param>
@@ -575,6 +576,7 @@ public void ValidateAndSetExcludedOperationImportsFromString(string inputValue)
     this.ExcludedOperationImports = inputValue.Split(',').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).ToList();
 }
 
+/// <summary>
 /// Set the ExcludedBoundOperations property with the given value.
 /// </summary>
 /// <param name="inputValue">Comma-separated list of bound operation names</param>
@@ -583,6 +585,7 @@ public void ValidateAndSetExcludedBoundOperationsFromString(string inputValue)
     this.ExcludedBoundOperations = inputValue.Split(',').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).ToList();
 }
 
+/// <summary>
 /// Set the ExcludedSchemaTypes property with the given value.
 /// </summary>
 /// <param name="inputValue">Comma-separated list of operation import names</param>
@@ -717,7 +720,7 @@ public class CodeGenerationContext
     /// Constructs an instance of <see cref="CodeGenerationContext"/>.
     /// </summary>
     /// <param name="metadataUri">The Uri to the metadata document. The supported scheme are File, http and https.</param>
-    /// <param name="namespacePrefix">The namespacePrefix is used as the only namespace in generated code
+    /// <param name="namespacePrefix">The namespacePrefix is used as the only namespace in generated code</param>
     public CodeGenerationContext(Uri metadataUri, string namespacePrefix)
         : this(metadataUri, namespacePrefix, null, null)
     {
@@ -728,7 +731,8 @@ public class CodeGenerationContext
     /// </summary>
     /// <param name="metadataUri">The Uri to the metadata document. The supported scheme are File, http and https.</param>
     /// <param name="proxy">Webproxy instance to use for retriving the metadata</param>
-    /// <param name="namespacePrefix">The namespacePrefix is used as the only namespace in generated code
+    /// <param name="CustomHttpHeaders"></param>
+    /// <param name="namespacePrefix">The namespacePrefix is used as the only namespace in generated code</param>
     public CodeGenerationContext(Uri metadataUri, string namespacePrefix,  WebProxy proxy,  IList<string> CustomHttpHeaders)
         : this(GetEdmxStringFromMetadataPath(metadataUri, proxy, CustomHttpHeaders), namespacePrefix)
     {
@@ -1165,6 +1169,7 @@ public class CodeGenerationContext
     /// <param name="schemaElement">The schema element to get the full name for.</param>
     /// <param name="schemaElementFixedName">The fixed name of this schemaElement.</param>
     /// <param name="template">The current code generate template.</param>
+    /// <param name="needGlobalPrefix"></param>
     /// <returns>The namespace qualified name for the given <paramref name="schemaElement"/> with the namespace prefix applied if this.NamespacePrefix is specified.</returns>
     public string GetPrefixedFullName(IEdmSchemaElement schemaElement, string schemaElementFixedName, ODataClientTemplate template, bool needGlobalPrefix = true)
     {
@@ -1229,6 +1234,8 @@ public class CodeGenerationContext
     /// Reads the edmx string from a file path or a http/https path.
     /// </summary>
     /// <param name="metadataUri">The Uri to the metadata document. The supported scheme are File, http and https.</param>
+    /// <param name="proxy"></param>
+    /// <param name="customHttpHeaders"></param>
     private static string GetEdmxStringFromMetadataPath(Uri metadataUri, WebProxy proxy, IList<string> customHttpHeaders)
     {
         string content = null;
@@ -1244,6 +1251,8 @@ public class CodeGenerationContext
     /// Get the metadata stream from a file path or a http/https path.
     /// </summary>
     /// <param name="metadataUri">The Uri to the stream. The supported scheme are File, http and https.</param>
+    /// <param name="proxy"></param>
+    /// <param name="customHttpHeaders"></param>
     private static Stream GetEdmxStreamFromUri(Uri metadataUri, WebProxy proxy, IList<string> customHttpHeaders)
     {
         Debug.Assert(metadataUri != null, "metadataUri != null");
@@ -3325,6 +3334,7 @@ internal static class Utils
     /// <param name="addNullableTemplate">This flag indicates whether to return the type name in nullable format</param>
     /// <param name="needGlobalPrefix">The flag indicates whether the namespace need to be added by global prefix</param>
     /// <param name="isOperationParameter">This flag indicates whether the edmTypeReference is for an operation parameter</param>
+    /// <param name="isEntitySingleType"></param>
     /// <returns>The clr type name of the type reference.</returns>
     internal static string GetClrTypeName(IEdmTypeReference edmTypeReference, bool useDataServiceCollection, ODataClientTemplate clientTemplate, CodeGenerationContext context, bool addNullableTemplate = true, bool needGlobalPrefix = true, bool isOperationParameter = false, bool isEntitySingleType = false)
     {

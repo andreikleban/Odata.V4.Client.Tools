@@ -70,20 +70,20 @@ namespace Odata.V4.Client.Tools.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Client Proxy for OData V3 was generated..
+        ///   Ищет локализованную строку, похожую на Client Proxy for OData V4 was generated..
         /// </summary>
-        internal static string Client_Proxy_for_OData_V3_was_generated_ {
+        internal static string Client_Proxy_for_OData_V4_was_generated_ {
             get {
-                return ResourceManager.GetString("Client_Proxy_for_OData_V3_was_generated_", resourceCulture);
+                return ResourceManager.GetString("Client_Proxy_for_OData_V4_was_generated_", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Client Proxy for OData V3 was not generated..
+        ///   Ищет локализованную строку, похожую на Client Proxy for OData V4 was not generated..
         /// </summary>
-        internal static string Client_Proxy_for_OData_V3_was_not_generated_ {
+        internal static string Client_Proxy_for_OData_V4_was_not_generated_ {
             get {
-                return ResourceManager.GetString("Client_Proxy_for_OData_V3_was_not_generated_", resourceCulture);
+                return ResourceManager.GetString("Client_Proxy_for_OData_V4_was_not_generated_", resourceCulture);
             }
         }
         
@@ -102,6 +102,15 @@ namespace Odata.V4.Client.Tools.Properties {
         internal static string Generating_Client_Proxy____ {
             get {
                 return ResourceManager.GetString("Generating_Client_Proxy____", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Generators error.
+        /// </summary>
+        internal static string Generators_error {
+            get {
+                return ResourceManager.GetString("Generators_error", resourceCulture);
             }
         }
         

@@ -9,16 +9,23 @@ using Odata.V4.Client.Tools.Templates;
 
 namespace Odata.V4.Client.Tools.Generator
 {
+    /// <summary>
+    /// Proxy classes generator
+    /// </summary>
     public class Odata4ClientGenerator
     {
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// ctor
+        /// </summary>
+        /// <param name="logger"></param>
         public Odata4ClientGenerator(ILogger logger)
         {
             _logger = logger;
         }
 
-        private static string GetMetadata(GeneratorParams generatorParams, out Version edmxVersion)
+        private static Version GetMetadataVersion(GeneratorParams generatorParams)
         {
             if (string.IsNullOrEmpty(generatorParams.MetadataDocumentUri))
                 throw new ArgumentNullException("OData Service Endpoint", Resources.Please_input_the_metadata_document_address);
@@ -87,11 +94,11 @@ namespace Odata.V4.Client.Tools.Generator
                             throw new InvalidOperationException(Resources.The_metadata_is_an_empty_file);
                         }
 
-                        Constants.SupportedEdmxNamespaces.TryGetValue(reader.NamespaceURI, out edmxVersion);
+                        Constants.SupportedEdmxNamespaces.TryGetValue(reader.NamespaceURI, out var edmxVersion);
                         writer.WriteNode(reader, false);
+                        return edmxVersion;
                     }
                 }
-                return workFile;
             }
             catch (WebException e)
             {
@@ -99,12 +106,18 @@ namespace Odata.V4.Client.Tools.Generator
             }
         }
 
+        /// <summary>
+        /// Generates proxy classes
+        /// </summary>
+        /// <param name="configuration"></param>
         public void GenerateClientProxyClasses(GeneratorParams configuration)
         {
+            _logger.LogInformation(Resources.Generating_Client_Proxy____);
+
             if (string.IsNullOrWhiteSpace(configuration.MetadataDocumentUri))
                 throw new ArgumentNullException(nameof(configuration.MetadataDocumentUri));
 
-            GetMetadata(configuration, out var version);
+            var version = GetMetadataVersion(configuration);
             if (version != Constants.EdmxVersion4)
                 throw new ArgumentException(string.Format(Resources.Wrong_edx_version, version));
 
@@ -132,8 +145,8 @@ namespace Odata.V4.Client.Tools.Generator
             var tempFile = Path.GetTempFileName();
             var referenceFolder = configuration.OutputDirectory;
 
-            var fileHandler = new FilesHandler();
-            fileHandler.TokenReplacementValues.Add("#VersionNumber#", configuration.GeneratorVersion);
+            var fileHandler = new FilesHandler(_logger);
+            fileHandler.TokenReplacementValues.Add("#VersionNumber#", Constants.GeneratorVersion);
 
             var serviceFilename = Constants.DefaultServiceFilename;
             if (!string.IsNullOrWhiteSpace(configuration.CustomContainerName))
@@ -156,13 +169,14 @@ namespace Odata.V4.Client.Tools.Generator
                     if (t4CodeGenerator.Errors != null && t4CodeGenerator.Errors.Count > 0)
                     {
                         foreach (var err in t4CodeGenerator.Errors)
-                            _logger?.LogWarning(err.ToString());
+                            _logger?.LogError(err.ToString());
+                        _logger.LogError(Resources.Client_Proxy_for_OData_V4_was_not_generated_);
                     }
                 }
             }
             catch (Exception e)
             {
-                _logger.LogError("Generators error", e);
+                _logger.LogError(Resources.Generators_error, e);
                 throw;
             }
 
@@ -176,7 +190,7 @@ namespace Odata.V4.Client.Tools.Generator
                 plugin.Execute();
             }
 
-            _logger?.LogInformation("Client Proxy for OData V4 was generated.");
+            _logger?.LogInformation(Resources.Client_Proxy_for_OData_V4_was_generated_);
         }
     }
 }

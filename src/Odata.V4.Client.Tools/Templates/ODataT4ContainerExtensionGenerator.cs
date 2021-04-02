@@ -50,10 +50,10 @@ namespace Odata.V4.Client.Tools.Templates
         }
         
         #line 21 "D:\github\Odata.V4.Client.Tools\src\Odata.V4.Client.Tools\Templates\ODataT4ContainerExtensionGenerator.tt"
+    
+    internal string ContainerNamespace{get; set;}
 
-    public string ContainerNamespace{get; set;}
-
-    public string ExtensionNamespace{get; set;}
+    internal string ExtensionNamespace{get; set;}
  
         
         #line default

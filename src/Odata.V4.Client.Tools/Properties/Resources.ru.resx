@@ -27,14 +27,14 @@
   <data name="Wrong_edx_version" xml:space="preserve">
 		<value>Не поддерживаемая версия EDMX. Поддерживаются версии 1-3. Текущая версия={0}</value>
 	</data>
-  <data name="Client_Proxy_for_OData_V3_was_not_generated_" xml:space="preserve">
-		<value>Клиентские классы OData V3 не были сформированы.</value>
+	<data name="Client_Proxy_for_OData_V4_was_not_generated_" xml:space="preserve">
+		<value>Клиентские классы OData V4 не были сформированы.</value>
 	</data>
   <data name="Writing_file__0_" xml:space="preserve">
 		<value>Записывается файл {0}</value>
 	</data>
-  <data name="Client_Proxy_for_OData_V3_was_generated_" xml:space="preserve">
-		<value>Клиентские классы OData V3 успешно созданы.</value>
+	<data name="Client_Proxy_for_OData_V4_was_generated_" xml:space="preserve">
+		<value>Клиентские классы OData V4 успешно созданы.</value>
 	</data>
   <data name="Errors_during_generation_Client_Proxy_for_OData_V3" xml:space="preserve">
 		<value>Ошибки во время генерации клиентских классов</value>
@@ -44,5 +44,8 @@
 	</data>
   <data name="Plugin_creation__0__error" xml:space="preserve">
 		<value>Ошибка создания плагина {0}</value>
+	</data>
+	<data name="Generators_error" xml:space="preserve">
+		<value>Ошибки генерации</value>
 	</data>
 </root>
