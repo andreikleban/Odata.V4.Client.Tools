@@ -18,9 +18,9 @@ namespace <#=ExtensionNamespace#>
     }
 }
 
-<#+
-    public string ContainerNamespace{get; set;}
+<#+    
+    internal string ContainerNamespace{get; set;}
 
-    public string ExtensionNamespace{get; set;}
+    internal string ExtensionNamespace{get; set;}
  #>
 

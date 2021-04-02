@@ -5,6 +5,7 @@ namespace Odata.V4.Client.Tools
 {
     internal class Constants
     {
+        public const string GeneratorVersion = "1.0.0";
         public const string DefaultServiceFilename = "ODataService";
         public const string CsdlFileNameSuffix = "Csdl.xml";
         public static Version EdmxVersion1 = new Version(1, 0, 0, 0);

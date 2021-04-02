@@ -14,7 +14,6 @@
 /// Creates an instance of the FilesManager. The object used to generate and manage
 /// multiple source files.
 /// </summary>
-/// <param name="context">The code generation context.</param>
 public class FilesManager {
 
     /// <summary>
@@ -60,10 +59,9 @@ public class FilesManager {
 
 
     /// <summary>
-    /// Creates FilesManager object given <paramref name="host"> and <param name="template">.
+    /// Creates FilesManager object given <param name="template"/>
     /// </summary>
-    /// <param name="host">Templating engine host</param>
-    /// <param name="template">Holds generated text</param>
+    /// <returns></returns>
     [SecurityCritical]
     public static FilesManager Create(StringBuilder template)
     {
@@ -125,6 +123,10 @@ public class FilesManager {
     /// </summary>
     /// <param name="split">If true the function is executed and multiple files generated
     /// otherwise only a single file is generated.</param>
+    /// <param name="handlerHelper"></param>
+    /// <param name="referenceFolder"></param>
+    /// <param name="fileCreated"></param>
+    /// <param name="OpenGeneratedFilesInIDE"></param>
     [SecurityCritical]
     public virtual void GenerateFiles(bool split, FilesHandler handlerHelper, string referenceFolder, bool fileCreated, bool OpenGeneratedFilesInIDE)
     {
@@ -160,7 +162,7 @@ public class FilesManager {
     }
 
     /// <summary>
-    ///Creates a file with the name <paramref name="fileName"> and content <paramref name="content">.
+    ///Creates a file with the name <paramref name="fileName"/> and content <paramref name="content"/>.
     /// </summary>
     /// <param name="fileName">Name of the file to be created</param>
     /// <param name="content">Content of the file to be created</param>

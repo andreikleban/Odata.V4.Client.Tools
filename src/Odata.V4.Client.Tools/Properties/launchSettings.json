@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "T2.DIP.Odata3.Cli": {
-      "commandName": "Project",
-      "commandLineArgs": "-m https://services.odata.org/V3/(S(v4jrscqjtjrvgatavy2jvkpq))/OData/OData.svc/$metadata -o D:\\Temp\\gen\\www -v -c Container -f OdataService --proxy topsoft\\kleban:Stockholm1956@by01-tmg.topsoft.local:8080 -pl=T2.DIP.Odata3.Cli.exe,T2.DIP.Odata3.Cli.Plugins.ChangeContainerNamePlugin -pl=T2.DIP.Odata3.Cli.exe,T2.DIP.Odata3.Cli.Plugins.ContainerHelperPlugin containerName=Container"
-    }
-  }
-}
