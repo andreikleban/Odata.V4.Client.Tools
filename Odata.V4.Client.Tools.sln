@@ -5,14 +5,16 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odata.V4.Client.Tools.Abstractions", "src\Odata.V4.Client.Tools.Abstractions\Odata.V4.Client.Tools.Abstractions.csproj", "{7B02982A-BA25-44BD-8D96-C54E7CB3991F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odata.V4.Client.Tools", "src\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj", "{18F38BB2-0341-4F1F-9857-F306624D97A5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0630749E-2970-40E3-A314-9DFCEEDEAD16}"
 	ProjectSection(SolutionItems) = preProject
 		Odata.V4.Client.Tools.targets = Odata.V4.Client.Tools.targets
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odata.V4.Client.Tools.Tests", "tests\Odata.V4.Client.Tools.Tests\Odata.V4.Client.Tools.Tests.csproj", "{20D78502-16D4-4A0A-8127-64C64A5F1347}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-odata4", "src\dotnet-odata4\dotnet-odata4.csproj", "{6C98957C-A65B-41C4-AA40-EF746B0A05C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Odata.V4.Client.Tools", "src\Odata.V4.Client.Tools\Odata.V4.Client.Tools.csproj", "{CBCF63EA-2316-4784-8597-C2C5E2D01212}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +26,18 @@ Global
 		{7B02982A-BA25-44BD-8D96-C54E7CB3991F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B02982A-BA25-44BD-8D96-C54E7CB3991F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B02982A-BA25-44BD-8D96-C54E7CB3991F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18F38BB2-0341-4F1F-9857-F306624D97A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18F38BB2-0341-4F1F-9857-F306624D97A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18F38BB2-0341-4F1F-9857-F306624D97A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18F38BB2-0341-4F1F-9857-F306624D97A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20D78502-16D4-4A0A-8127-64C64A5F1347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20D78502-16D4-4A0A-8127-64C64A5F1347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D78502-16D4-4A0A-8127-64C64A5F1347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20D78502-16D4-4A0A-8127-64C64A5F1347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C98957C-A65B-41C4-AA40-EF746B0A05C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C98957C-A65B-41C4-AA40-EF746B0A05C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C98957C-A65B-41C4-AA40-EF746B0A05C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C98957C-A65B-41C4-AA40-EF746B0A05C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCF63EA-2316-4784-8597-C2C5E2D01212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCF63EA-2316-4784-8597-C2C5E2D01212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCF63EA-2316-4784-8597-C2C5E2D01212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCF63EA-2316-4784-8597-C2C5E2D01212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
