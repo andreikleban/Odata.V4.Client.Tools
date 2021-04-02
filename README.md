@@ -1,4 +1,5 @@
 # dotnet-odata4
+[![CI](https://github.com/klebanandrey/Odata.V4.Client.Tools/workflows/develop/badge.svg)](https://github.com/klebanandrey/Odata.V4.Client.Tools/actions?query=workflow%3Adevelop)
 [![NuGet](https://img.shields.io/nuget/v/dotnet-odata4.svg)](https://www.nuget.org/packages/dotnet-odata4/)
 
 
