@@ -1,14 +1,16 @@
-name: release build
+name: build release
 
 on:
   pull_request:
     branches: [ main ]
-  push:
-    branches: [ main ]
+    paths:
+       - 'src/**'
+       - 'tests/**'
+       - '*.sln'
+       - '*.targets'
 
 jobs:
   build:
-
 
     runs-on: windows-latest
 
@@ -30,17 +32,20 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: packages
-        path: src/**/*.nupkg      
+        path: src/**/*.nupkg
+        retention-days: 3
     
     - uses: actions/upload-artifact@v2
       with:
         name: symbols
-        path: src/**/*.snupkg              
+        path: src/**/*.snupkg
+        retention-days: 3
         
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v2        
       with:
         name: Odata.V4.Client.Tools
-        path: Publish/*.*        
+        path: Publish/*.*
+        retention-days: 3
       
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v2      

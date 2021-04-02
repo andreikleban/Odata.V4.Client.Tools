@@ -1,10 +1,20 @@
-name: develop build
+name: build develop
 
 on:
-  push:
+  push:    
     branches-ignore: [ main ]
+    paths:
+       - 'src/**'
+       - 'tests/**'
+       - '*.sln'
+       - '*.targets'
   pull_request:
     branches-ignore: [ main ]
+    paths:
+       - 'src/**'
+       - 'tests/**'
+       - '*.sln'
+       - '*.targets'
 
 jobs:
   build:
