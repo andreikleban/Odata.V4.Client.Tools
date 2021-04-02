@@ -40,8 +40,8 @@ namespace Odata.V4.Client.Tools
         public static void Main(string[] args)
         {
             _commandLine = new CommandLineApplication(false);
-            _commandLine.Description = "Client Proxy generator for OData V3";
-            _commandLine.Name = typeof(Program).Assembly.GetName().Name;
+            _commandLine.Description = "Client Proxy generator for OData V4";
+            _commandLine.Name = "odata4";
 
             _commandLine.HelpOption("-?|-h|--help");
             var version = Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
@@ -53,7 +53,7 @@ namespace Odata.V4.Client.Tools
             _makeTypesInternalOption = _commandLine.Option("-i|--internal", "If set to true, generated types will have an \"internal\" class modifier instead of \"public\" thereby making them invisible outside the assembly", CommandOptionType.NoValue);
             _generateMultipleFilesOption = _commandLine.Option("-mf|--multiple", "This files indicates whether to generate the files into multiple files or single", CommandOptionType.NoValue);
             _excludedOperationImportsOption = _commandLine.Option("-eoi", "Comma-separated list of the names of operation imports to exclude from the generated code", CommandOptionType.SingleValue);
-            _excludedBoundOperationsOption = _commandLine.Option("-ebo", "Comma-separated list of the names of entity types to exclude from the generated code", CommandOptionType.SingleValue);
+            _excludedBoundOperationsOption = _commandLine.Option("-ebo", "Comma-separated list of the names of bound operations to exclude from the generated code", CommandOptionType.SingleValue);
             _excludedSchemaTypes = _commandLine.Option("-est", "Comma-separated list of the names of entity types to exclude from the generated code", CommandOptionType.SingleValue);
             _customContainerNameOption = _commandLine.Option("-c", "Custom container class name", CommandOptionType.SingleValue);
             _outputDirOption = _commandLine.Option("-o|--outputdir", "Full path to output directory", CommandOptionType.SingleValue);
