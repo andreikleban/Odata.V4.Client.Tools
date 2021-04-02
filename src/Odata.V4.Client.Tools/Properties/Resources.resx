@@ -135,14 +135,8 @@
   <data name="Client_Proxy_for_OData_V4_was_not_generated_" xml:space="preserve">
 	  <value>Client Proxy for OData V4 was not generated.</value>
   </data>
-  <data name="Writing_file__0_" xml:space="preserve">
-    <value>Writing file {0}</value>
-  </data>
   <data name="Client_Proxy_for_OData_V4_was_generated_" xml:space="preserve">
     <value>Client Proxy for OData V4 was generated.</value>
-  </data>
-  <data name="Errors_during_generation_Client_Proxy_for_OData_V3" xml:space="preserve">
-    <value>Errors during generation Client Proxy for OData V3</value>
   </data>
   <data name="Plugin_assembly_hasn_t_found" xml:space="preserve">
     <value>Plugin assembly hasn't found</value>
@@ -152,5 +146,11 @@
   </data>
   <data name="Generators_error" xml:space="preserve">
 	  <value>Generators error</value>
+  </data>
+  <data name="File__0__added_" xml:space="preserve">
+	  <value>File {0} added </value>
+  </data>
+  <data name="Incorrect_plugin_name" xml:space="preserve">
+	  <value>Incorrect plugin name. Needed format: Assembly.dll,Namespace.Class</value>
   </data>
 </root>

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Odata.V4.Client.Tools.Properties;
 
 namespace Odata.V4.Client.Tools.Generator
 {
@@ -27,7 +28,7 @@ namespace Odata.V4.Client.Tools.Generator
                 content = content.Replace(token.Key, token.Value);
 
             File.WriteAllText(targetPath, content);
-            _logger.LogInformation($"File {targetPath} added ");
+            _logger.LogInformation(string.Format(Resources.File__0__added_, targetPath));
             return Task.FromResult(string.Empty);
         }
         public IDictionary<string, string> TokenReplacementValues { get; }

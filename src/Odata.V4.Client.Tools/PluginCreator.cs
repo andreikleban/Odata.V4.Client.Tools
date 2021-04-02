@@ -13,7 +13,7 @@ namespace Odata.V4.Client.Tools
         {
             var args = command.Split(',');
             if (args.Length < 2)
-                throw new ArgumentException("Incorrect plugin name. Needed format: Assembly.dll,Namespace.Class");
+                throw new ArgumentException(Resources.Incorrect_plugin_name);
 
             if (!File.Exists(Path.Combine(Directory.GetCurrentDirectory(), args[0])))
                 throw new FileNotFoundException(Resources.Plugin_assembly_hasn_t_found, args[0]);

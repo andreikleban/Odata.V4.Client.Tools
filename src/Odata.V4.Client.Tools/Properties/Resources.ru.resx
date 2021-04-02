@@ -30,16 +30,10 @@
 	<data name="Client_Proxy_for_OData_V4_was_not_generated_" xml:space="preserve">
 		<value>Клиентские классы OData V4 не были сформированы.</value>
 	</data>
-  <data name="Writing_file__0_" xml:space="preserve">
-		<value>Записывается файл {0}</value>
-	</data>
 	<data name="Client_Proxy_for_OData_V4_was_generated_" xml:space="preserve">
 		<value>Клиентские классы OData V4 успешно созданы.</value>
 	</data>
-  <data name="Errors_during_generation_Client_Proxy_for_OData_V3" xml:space="preserve">
-		<value>Ошибки во время генерации клиентских классов</value>
-	</data>
-  <data name="Plugin_assembly_hasn_t_found" xml:space="preserve">
+	<data name="Plugin_assembly_hasn_t_found" xml:space="preserve">
 		<value>Сборка с плагином не найдена</value>
 	</data>
   <data name="Plugin_creation__0__error" xml:space="preserve">
@@ -47,5 +41,11 @@
 	</data>
 	<data name="Generators_error" xml:space="preserve">
 		<value>Ошибки генерации</value>
+	</data>
+	<data name="File__0__added_" xml:space="preserve">
+		<value>Файл {0} добавлен</value>
+	</data>
+	<data name="Incorrect_plugin_name" xml:space="preserve">
+		<value>Не корректное имя плагина. Поддерживается следующий формат имени: Assembly.dll,Namespace.Class</value>
 	</data>
 </root>

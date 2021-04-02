@@ -22,7 +22,7 @@ namespace Odata.V4.Client.Tools
         private static CommandOption _namespaceOption;
         private static CommandOption _disableNamingAliasOption;
         private static CommandOption _makeTypesInternalOption;
-        private static CommandOption _generateSingleFileOption;
+        private static CommandOption _generateMultipleFilesOption;
         private static CommandOption _excludedOperationImportsOption;
         private static CommandOption _excludedBoundOperationsOption;
         private static CommandOption _excludedSchemaTypes;
@@ -51,7 +51,7 @@ namespace Odata.V4.Client.Tools
             _namespaceOption = _commandLine.Option("-ns|--namespace", "The namespace of the client code generated.", CommandOptionType.SingleValue);
             _disableNamingAliasOption = _commandLine.Option("-na|--no-alias", "This flag indicates whether to disable naming alias", CommandOptionType.NoValue);
             _makeTypesInternalOption = _commandLine.Option("-i|--internal", "If set to true, generated types will have an \"internal\" class modifier instead of \"public\" thereby making them invisible outside the assembly", CommandOptionType.NoValue);
-            _generateSingleFileOption = _commandLine.Option("-s|--single-file", "This files indicates whether to generate the files into multiple files or single", CommandOptionType.NoValue);
+            _generateMultipleFilesOption = _commandLine.Option("-mf|--multiple", "This files indicates whether to generate the files into multiple files or single", CommandOptionType.NoValue);
             _excludedOperationImportsOption = _commandLine.Option("-eoi", "Comma-separated list of the names of operation imports to exclude from the generated code", CommandOptionType.SingleValue);
             _excludedBoundOperationsOption = _commandLine.Option("-ebo", "Comma-separated list of the names of entity types to exclude from the generated code", CommandOptionType.SingleValue);
             _excludedSchemaTypes = _commandLine.Option("-est", "Comma-separated list of the names of entity types to exclude from the generated code", CommandOptionType.SingleValue);
@@ -129,8 +129,8 @@ namespace Odata.V4.Client.Tools
             if (_makeTypesInternalOption.HasValue())
                 _generatorParams.MakeTypesInternal = true;
 
-            if (_generateSingleFileOption.HasValue())
-                _generatorParams.GenerateMultipleFiles = false;
+            if (_generateMultipleFilesOption.HasValue())
+                _generatorParams.GenerateMultipleFiles = true;
 
             if (_excludedOperationImportsOption.HasValue())
                 _generatorParams.ExcludedOperationImports = _excludedOperationImportsOption.Value().Split(',');
