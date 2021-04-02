@@ -1,4 +1,6 @@
 # dotnet-odata4
+[![NuGet](https://img.shields.io/nuget/v/dotnet-odata4.svg)](https://www.nuget.org/packages/dotnet-odata4/)
+
 
 dotnet-odata4 is a command-line tool for generation OData client proxy classes. It's based on [OData Connected Services Extension](https://github.com/OData/ODataConnectedService).
 
